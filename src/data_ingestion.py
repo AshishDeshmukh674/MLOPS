@@ -12,21 +12,25 @@ os.makedirs(log_dir, exist_ok=True)
 
 # logging configuration
 logger = logging.getLogger('data_ingestion')
-logger.setLevel('DEBUG')
+logger.setLevel('DEBUG')     #INFO,WARNING,ERROR,CRITICAL
 
-console_handler = logging.StreamHandler()
+console_handler = logging.StreamHandler()   #terminal mai logs print karega
 console_handler.setLevel('DEBUG')
 
-log_file_path = os.path.join(log_dir, 'data_ingestion.log')
+log_file_path = os.path.join( 'data_ingestion.log')
 file_handler = logging.FileHandler(log_file_path)
 file_handler.setLevel('DEBUG')
 
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+
 console_handler.setFormatter(formatter)
 file_handler.setFormatter(formatter)
 
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
+
+
 
 def load_params(params_path: str) -> dict:
     """Load parameters from a YAML file."""
@@ -45,6 +49,8 @@ def load_params(params_path: str) -> dict:
         logger.error('Unexpected error: %s', e)
         raise
 
+
+
 def load_data(data_url: str) -> pd.DataFrame:
     """Load data from a CSV file."""
     try:
@@ -57,6 +63,9 @@ def load_data(data_url: str) -> pd.DataFrame:
     except Exception as e:
         logger.error('Unexpected error occurred while loading the data: %s', e)
         raise
+
+
+
 
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """Preprocess the data."""
@@ -72,6 +81,8 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
         logger.error('Unexpected error during preprocessing: %s', e)
         raise
 
+
+
 def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str) -> None:
     """Save the train and test datasets."""
     try:
@@ -84,11 +95,13 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
         logger.error('Unexpected error occurred while saving the data: %s', e)
         raise
 
+
+
 def main():
     try:
-        params = load_params(params_path='params.yaml')
-        test_size = params['data_ingestion']['test_size']
-        # test_size = 0.2
+        # params = load_params(params_path='params.yaml')
+        # test_size = params['data_ingestion']['test_size']
+        test_size = 0.2
         data_path = 'https://raw.githubusercontent.com/vikashishere/Datasets/main/spam.csv'
         df = load_data(data_url=data_path)
         final_df = preprocess_data(df)
