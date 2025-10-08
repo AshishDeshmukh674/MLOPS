@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/571692449462789174/f8ec56f620a7480abf70e4e03838da74/artifacts
+end_time: 1759396879113
+entry_point_name: ''
+experiment_id: '571692449462789174'
+lifecycle_stage: active
+run_id: f8ec56f620a7480abf70e4e03838da74
+run_name: worried-lamb-400
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1759396860386
+status: 3
+tags: []
+user_id: ashis

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/655519847789695832/79d02ce7965b4b81a762120b02713e11/artifacts
+end_time: 1759853214588
+entry_point_name: ''
+experiment_id: '655519847789695832'
+lifecycle_stage: active
+run_id: 79d02ce7965b4b81a762120b02713e11
+run_name: whimsical-doe-831
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1759853192242
+status: 3
+tags: []
+user_id: ashis
